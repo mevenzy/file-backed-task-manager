@@ -3,6 +3,7 @@ package service;
 import model.Task;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TaskService {
     private List<Task> tasks = new ArrayList<>();
@@ -42,7 +43,7 @@ public class TaskService {
 
     // Удалить задачу
     public void removeTask(String title) {
-        boolean isRemove = tasks.removeIf(task -> task.getTitle() == title);
+        boolean isRemove = tasks.removeIf(task -> Objects.equals(task.getTitle(), title));
 
         if (isRemove) {
             System.out.println("✅ Задача была удалена\n");
